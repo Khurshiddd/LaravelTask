@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
-
+    <title>LaravelTask</title>
+    <link rel="stylesheet" href="{{ asset('plugins/form.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -38,12 +38,20 @@
         </div>
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light row">
             <!-- Left navbar links -->
-            <ul class="navbar-nav">
+            <ul class="navbar-nav col-6">
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
+            </ul>
+            <ul class="navbar-nav col-6 justify-content-end">
+                @if (auth()->user())
+                <li class="nav-item ms-auto float-right mr-2"><a href="{{ route('dashboard') }}">User</a></li>
+                @else
+                <li class="nav-item ms-auto float-right mr-2"><a href="{{ route('register') }}">Register</a></li>
+                <li class="nav-item ms-auto float-right"><a href="{{ route('login') }}">Login</a></li>
+                @endif
             </ul>
         </nav>
         <!-- /.navbar -->
@@ -65,7 +73,9 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
+
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('plugins/form.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('US.main.index');
-});
+Route::get('/',[ProductController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,5 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/category', [CategoryController::class,'index'])->name('indexCategory');
+Route::post('/category', [CategoryController::class, 'create'])->name('createController');
 
 require __DIR__.'/auth.php';
