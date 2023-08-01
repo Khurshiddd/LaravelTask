@@ -1,0 +1,8 @@
+Laravel
+Admin panelda authorization qilinadi
+Category va Product model uchun CRUD qilinishi kerak
+Category table sortable bolishi kerak videoda table qanday bo’lishi ko’rsatilgan
+Product table uchun ham CRUD yasaladi
+Har bir user o’zi yaratgan category va products ni ko’rishi kerak.
+Table ko’rinishi, sortablega ko’proq e’tibor berishingizni so’raymiz.
+Site: https://botcommerce.io
