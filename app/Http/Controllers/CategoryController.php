@@ -29,15 +29,23 @@ class CategoryController extends Controller
     {
         return view('US.categories.show', compact('category'));
     }
-    
+
+    public function edit(Category $category)
+    {
+        return view('US.categories.edit', compact('category'));
+    }
+
 
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        dd($request);
+        $data = $request->validated();
+        $category->update($data);
+        return redirect()->route('index');
     }
 
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->back();
     }
 }
