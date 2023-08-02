@@ -1,4 +1,4 @@
-@extends('admin.layouts.main')
+@extends('US.layouts.main')
 @section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -33,21 +33,15 @@
                                 <tbody>
                                     <tr>
                                         <td>Id</td>
-                                        <td>{{ $category->id }}</td>
+                                        <td>{{ $category->imoji }}</td>
                                     </tr>
                                     <tr>
                                         <td>Name</td>
-                                        <td>{{ $category->title }}</td>
-                                        <td><a href="{{ route('admin.category.edit',$category->id ) }}"><i class="fa-solid fa-pen"></i></a></td>
-                                        <td>
-                                            <form action="{{ route('admin.category.delete', $category->id) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="border-0 bg-transparent">
-                                                    <i class="fa-solid fa-trash-can text-danger" role="button"></i>
-                                                </button>
-                                            </form>
-                                        </td>
+                                        <td>{{ $category->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Description</td>
+                                        <td>{{ $category->description }}</td>
                                     </tr>
                                 </tbody>
                             </table>

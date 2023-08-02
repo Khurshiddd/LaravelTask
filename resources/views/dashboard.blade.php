@@ -10,6 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
+                    <div>
+                        <a href="{{ route('index') }}" type="button" class="btn btn-danger text-black">Main Page</a>
+                    </div>
                 </div>
             </div>
         </div>

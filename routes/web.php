@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[ProductController::class, 'index']);
+Route::get('/',[ProductController::class, 'index'])->name('index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -29,6 +29,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/category', [CategoryController::class,'index'])->name('indexCategory');
-Route::post('/category', [CategoryController::class, 'create'])->name('createController');
+Route::post('/category', [CategoryController::class, 'store'])->name('storeCategory');
+Route::get('/category/{category}',[CategoryController::class,'show'])->name('showCategory');
+Route::put('/category/{category}',[CategoryController::class,'update'])->name('updateCategory');
 
 require __DIR__.'/auth.php';
