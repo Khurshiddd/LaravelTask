@@ -59,28 +59,18 @@
                                 <label class="form-label" id="selected-icon">Imoji</label>
                               <input type="text" name="imoji" id="icon-input" class="form-control form-control-lg" />
                             </div>
-
                           </div>
-
-
-
                         <div class="row">
-
                         </div>
-
-                        <div class="row">
+                      <div class="row">
                           <div class="col-12 form-group">
-
                               <label class="form-label">Description</label>
                             <textarea name="description" id="summernote" cols="50" rows="5"></textarea>
-
                           </div>
                         </div>
-
                         <div class="mt-4 pt-2 form-group">
                           <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
                         </div>
-
                       </form>
                     </div>
                   </div>

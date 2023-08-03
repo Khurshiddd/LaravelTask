@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
-use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -16,13 +18,17 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $categories = Category::all();
-        return view('US.main.index',compact('categories', 'products'));
+        return view('US.product.index',compact('categories', 'products'));
     }
 
 
     public function store(StoreProductRequest $request)
     {
-
+        $data = $request->validated();
+        $data['user_id'] = Auth::id();
+        $data['image'] = Storage::put('/images',$data['image']);
+        Product::firstOrCreate($data);
+        return redirect()->back();
     }
 
     /**

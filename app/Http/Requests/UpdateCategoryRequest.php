@@ -22,7 +22,6 @@ class UpdateCategoryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => auth()->user(),
             'name' => 'required|string',
             'imoji' => 'required',
             'description' => 'required',
