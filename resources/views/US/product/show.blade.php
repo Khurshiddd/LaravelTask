@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">{{ $category->title }}</li>
+                        <li class="breadcrumb-item active">{{ $product->name }}</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -33,15 +33,23 @@
                                 <tbody>
                                     <tr>
                                         <td>Id</td>
-                                        <td>{{ $category->imoji }}</td>
+                                        <td>{{ $product->id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Category</td>
+                                        <td>{{ $product->category->name }}</td>
                                     </tr>
                                     <tr>
                                         <td>Name</td>
-                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $product->name }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Description</td>
-                                        <td>{{ $category->description }}</td>
+                                        <td>Price</td>
+                                        <td>{{ $product->narx }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Image</td>
+                                        <td><img src="{{ asset('storage/'.$product->image) }}" alt="rasm"></td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -97,7 +97,7 @@
                     <td>{{ $category->name }}</td>
                     <td>true false</td>
                     <td>
-                        @auth
+                        @if (auth()->id() == $category->user_id)
                         <a href="{{ route('showCategory', $category->id) }}"><i class="far fa-eye"></i></a>
                         <a href="{{ route('editCategory', $category->id) }}"><i class='text-primary fa-solid fa-pen'></i></a>
                         <form action="{{ route('deleteCategory', ['category' => $category->id]) }}" method="POST" class="d-inline">
@@ -107,7 +107,7 @@
                                 <i class="fa-solid fa-trash-can text-danger" role="button"></i>
                             </button>
                         </form>
-                        @endauth
+                        @endif
                     </td>
                   </tr>
                   @endforeach

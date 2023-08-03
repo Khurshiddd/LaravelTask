@@ -40,6 +40,6 @@ Route::post('/product', [ProductController::class, 'store'])->name('storeProduct
 Route::get('/product/{product}',[ProductController::class,'show'])->name('showProduct');
 Route::get('/{product}/product',[ProductController::class,'edit'])->name('editProduct');
 Route::put('/product/{product}',[ProductController::class,'update'])->name('updateProduct');
-Route::delete('{product}',[ProductController::class,'destroy'])->name('deleteProduct');
+Route::delete('/product/delete/{product}',[ProductController::class,'destroy'])->name('deleteProduct');
 
 require __DIR__.'/auth.php';

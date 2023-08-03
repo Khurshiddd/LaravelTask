@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $user = Auth::id();
+        $categories = Category::where('user_id', $user)->get();
         return view('US.categories.index', compact('categories'));
     }
 
@@ -34,6 +35,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
+
         return view('US.categories.edit', compact('category'));
     }
 

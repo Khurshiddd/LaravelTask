@@ -103,17 +103,17 @@
                     <td><img src="{{ asset('storage/'.$product->image) }}" class="img-fluid w-25 content" alt="rasm"></td>
                     <td>true false</td>
                     <td>
-                        @auth
+                        @if (auth()->id() == $product->user_id)
                         <a href="{{ route('showProduct', $product->id) }}"><i class="far fa-eye"></i></a>
                         <a href="{{ route('editProduct', $product->id) }}"><i class='text-primary fa-solid fa-pen'></i></a>
-                        <form action="{{ route('deleteProduct', ['product' => $product->id]) }}" method="POST" class="d-inline">
+                        <form action="{{ route('deleteProduct', $product->id) }}" method="POST" class="d-inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="border-0 bg-transparent">
                                 <i class="fa-solid fa-trash-can text-danger" role="button"></i>
                             </button>
                         </form>
-                        @endauth
+                        @endif
                     </td>
                   </tr>
                   @endforeach

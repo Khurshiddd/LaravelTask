@@ -16,8 +16,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $user = Auth::id();
         $products = Product::all();
-        $categories = Category::all();
+        $categories = Category::where('user_id',$user)->get();
         return view('US.product.index',compact('categories', 'products'));
     }
 
@@ -31,12 +32,10 @@ class ProductController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(Product $product)
     {
-        //
+        return view('US.product.show', compact('product'));
     }
 
     /**
@@ -44,22 +43,30 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $user = Auth::id();
+        $categories = Category::where('user_id',$user)->get();
+        return view('US.product.edit', compact('product', 'categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $data = $request->validated();
+        if($request->hasFile('image')){
+            Storage::delete($product->image);
+        }
+        $data['image'] = Storage::put('images/', $data['image']);
+        $product->updateOrFail($data);
+        return redirect()->route('indexProduct');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Product $product)
     {
-        //
+        if(isset($product->image)){
+            Storage::delete($product->image);
+        }
+        $product->delete();
+        return redirect()->back();
     }
 }
