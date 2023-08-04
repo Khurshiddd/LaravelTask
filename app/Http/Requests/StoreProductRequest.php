@@ -14,7 +14,6 @@ class StoreProductRequest extends FormRequest
     {
         return true;
     }
-    // Bu negadir ishlamadi
 
 
     public function rules(): array
