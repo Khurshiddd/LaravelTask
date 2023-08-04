@@ -101,7 +101,12 @@
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->narx }}</td>
                     <td><img src="{{ asset('storage/'.$product->image) }}" class="img-fluid w-25 content" alt="rasm"></td>
-                    <td>true false</td>
+                    <td>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                        </div>
+                    </td>
                     <td>
                         @if (auth()->id() == $product->user_id)
                         <a href="{{ route('showProduct', $product->id) }}"><i class="far fa-eye"></i></a>
