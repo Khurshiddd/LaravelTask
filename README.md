@@ -18,13 +18,20 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - Database agnostic [schema migrations](https://laravel.com/docs/migrations).
 - [Robust background job processing](https://laravel.com/docs/queues).
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+terminal
 
     php artisan key:generate
+    
     FILESYSTEM_DISK=public
+    
     databaza 
+    
     php artisan storage:link
+    
     npm install
+    
     php artisan serve
+    
     npm run dev
     
 -   bu prayektning frotend qismi yaxshi chiqmagan bo'lishi mumkun chunki men backend dasturchiman!
